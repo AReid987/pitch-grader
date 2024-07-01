@@ -1,0 +1,147 @@
+# SECTION - Components
+
+# ANCHOR -  Objects
+classroomAPI: Google Classroom API
+assignmentProcessor: Assignment Processor
+videoAnalysis: Video Analysis
+textAnalysis: Text Analysis
+gradingEngine: Grading Engine
+scoringModule: Scoring Module
+feedbackGenerator: Feedback Generator
+resultsDatabase: Results Database
+teacherReview: Teacher Review Interface
+finalSubmission: Final Grade Submission
+
+# ANCHOR - Connections
+classroomAPI -> assignmentProcessor: "Fetch Assignments" {
+  style.animated: true
+}
+assignmentProcessor -> videoAnalysis: "Video Submissions" {
+  style.animated: true
+}
+assignmentProcessor -> textAnalysis: "Written Drafts" {
+  style.animated: true
+}
+videoAnalysis -> gradingEngine: "Process Video Analysis" {
+  style.animated: true
+}
+textAnalysis -> gradingEngine: "Process Text Analysis" {
+  style.animated: true
+}
+gradingEngine -> scoringModule: "Apply Rubric" {
+  style.animated: true
+}
+scoringModule -> feedbackGenerator: "Generate Feedback Based on Rubric" {
+  style.animated: true
+}
+feedbackGenerator -> resultsDatabase: "Store Feedback" {
+  style.animated: true
+}
+resultsDatabase -> teacherReview: "Fetch Feedback" {
+  style.animated: true
+}
+teacherReview -> finalSubmission: "Approve / Modify / Regenerate" {
+  style.animated: true
+}
+
+# ANCHOR - Attributes
+# Shapes
+classroomAPI.shape: cloud
+assignmentProcessor.shape: rectangle
+videoAnalysis.shape: rectangle
+textAnalysis.shape: rectangle
+gradingEngine.shape: rectangle
+scoringModule.shape: rectangle
+feedbackGenerator.shape: rectangle
+resultsDatabase.shape: cylinder
+teacherReview.shape: rectangle
+finalSubmission.shape: rectangle
+
+#ANCHOR - Icons
+
+classroomAPI.icon: https://cdn.simpleicons.org/googleclassroom
+# !SECTION
+# classroom api: {
+#   icon: https://icons.terrastruct.com/essentials%2F112-server.svg
+#   label: "Google Classroom API"
+#   shape: cloud
+# }
+
+# assignment processor: {
+#   label: "Assignment Processor"
+#   shape: rectangle
+# }
+
+# video analysis: {
+#   label: "Video Analysis Module"
+#   shape: rectangle
+# }
+
+# text analysis: {
+#   label: "Text Analysis Module"
+#   shape: rectangle
+# }
+
+# grading engine: {
+#   label: "Grading Engine"
+#   shape: rectangle
+# }
+
+# scoring module: {
+#   label: "Scoring Module"
+#   shape: rectangle
+# }
+
+# feedback generator: {
+#   label: "Feedback Generator"
+#   shape: rectangle
+# }
+
+# results database: {
+#   label: "Results Database"
+#   shape: cylinder
+#   icon: https://icons.terrastruct.com/essentials%2F119-database.svg
+# }
+
+# teacher review: {
+#   label: "Teacher Review Interface"
+#   shape: rectangle
+# }
+
+# final submission: {
+#   label: "Final Grade Submission"
+#   shape: rectangle
+# }
+# !SECTION
+# SECTION - Connections
+# classroom api -> assignment processor: "Fetch Assignments" {
+#   style.animated: true
+# }
+# assignment processor -> video analysis: "Video Submissions" {
+#   style.animated: true
+# }
+# assignment processor -> text analysis: "Written Drafts" {
+#   style.animated: true
+# }
+# video analysis -> grading engine: "Process Video Analysis" {
+#   style.animated: true
+# }
+# text analysis -> grading engine: "Process Text Analysis" {
+#   style.animated: true
+# }
+# grading engine -> scoring module: "Apply Rubric" {
+#   style.animated: true
+# }
+# scoring module -> feedback generator: "Generate Feedback Based on Rubric" {
+#   style.animated: true
+# }
+# feedback generator -> results database: "Store Feedback" {
+#   style.animated: true
+# }
+# results database -> teacher review: "Fetch Feedback" {
+#   style.animated: true
+# }
+# teacher review -> final submission: "Approve / Modify / Regenerate" {
+#   style.animated: true
+# }
+# !SECTION
