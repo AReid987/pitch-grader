@@ -1,8 +1,16 @@
-# SECTION - Components
+# TITLE - Level 2: Component Diagram
 
-# ANCHOR -  Objects
-classroomAPI: Google Classroom API
-assignmentProcessor: Assignment Processor
+# HEADING - Components
+
+# SECTION Objects
+classroomAPI: Google Classroom API {
+  near: top-center
+}
+assignmentProcessor: Assignment Processor {
+  style: {
+    fill: red
+  }
+}
 videoAnalysis: Video Analysis
 textAnalysis: Text Analysis
 gradingEngine: Grading Engine
@@ -12,7 +20,7 @@ resultsDatabase: Results Database
 teacherReview: Teacher Review Interface
 finalSubmission: Final Grade Submission
 
-# ANCHOR - Connections
+# SECTION - Connections
 classroomAPI -> assignmentProcessor: "Fetch Assignments" {
   style.animated: true
 }
@@ -44,104 +52,35 @@ teacherReview -> finalSubmission: "Approve / Modify / Regenerate" {
   style.animated: true
 }
 
-# ANCHOR - Attributes
-# Shapes
+finalSubmission -> classroomAPI: "Submit Grade" {
+  style.animated: true
+}
+
+# HEADING - Attributes
+# SECTION - Shapes
 classroomAPI.shape: cloud
-assignmentProcessor.shape: rectangle
-videoAnalysis.shape: rectangle
-textAnalysis.shape: rectangle
+assignmentProcessor.shape: square
+videoAnalysis.shape: circle
+textAnalysis.shape: circle
 gradingEngine.shape: rectangle
 scoringModule.shape: rectangle
-feedbackGenerator.shape: rectangle
+feedbackGenerator.shape: circle
 resultsDatabase.shape: cylinder
-teacherReview.shape: rectangle
-finalSubmission.shape: rectangle
+teacherReview.shape: step
+finalSubmission.shape: diamond
 
-#ANCHOR - Icons
-
+# HEADING - Icons
 classroomAPI.icon: https://cdn.simpleicons.org/googleclassroom
-# !SECTION
-# classroom api: {
-#   icon: https://icons.terrastruct.com/essentials%2F112-server.svg
-#   label: "Google Classroom API"
-#   shape: cloud
-# }
+assignmentProcessor.icon: https://api.iconify.design/hugeicons/api.svg
+videoAnalysis.icon: https://api.iconify.design/ph/video-light.svg
+textAnalysis.icon: https://api.iconify.design/material-symbols-light/text-ad-outline.svg
+gradingEngine.icon: https://api.iconify.design/material-symbols/grading.svg
+scoringModule.icon: https://api.iconify.design/hugeicons/school-report-card.svg
+feedbackGenerator.icon: https://api.iconify.design/material-symbols/feedback-outline.svg
+resultsDatabase.icon: https://api.iconify.design/material-symbols/database-outline.svg
+teacherReview.icon: https://api.iconify.design/hugeicons/teacher.svg
+finalSubmission.icon: https://api.iconify.design/mdi/file-send-outline.svg
 
-# assignment processor: {
-#   label: "Assignment Processor"
-#   shape: rectangle
-# }
+# HEADING - Positioning
 
-# video analysis: {
-#   label: "Video Analysis Module"
-#   shape: rectangle
-# }
-
-# text analysis: {
-#   label: "Text Analysis Module"
-#   shape: rectangle
-# }
-
-# grading engine: {
-#   label: "Grading Engine"
-#   shape: rectangle
-# }
-
-# scoring module: {
-#   label: "Scoring Module"
-#   shape: rectangle
-# }
-
-# feedback generator: {
-#   label: "Feedback Generator"
-#   shape: rectangle
-# }
-
-# results database: {
-#   label: "Results Database"
-#   shape: cylinder
-#   icon: https://icons.terrastruct.com/essentials%2F119-database.svg
-# }
-
-# teacher review: {
-#   label: "Teacher Review Interface"
-#   shape: rectangle
-# }
-
-# final submission: {
-#   label: "Final Grade Submission"
-#   shape: rectangle
-# }
-# !SECTION
-# SECTION - Connections
-# classroom api -> assignment processor: "Fetch Assignments" {
-#   style.animated: true
-# }
-# assignment processor -> video analysis: "Video Submissions" {
-#   style.animated: true
-# }
-# assignment processor -> text analysis: "Written Drafts" {
-#   style.animated: true
-# }
-# video analysis -> grading engine: "Process Video Analysis" {
-#   style.animated: true
-# }
-# text analysis -> grading engine: "Process Text Analysis" {
-#   style.animated: true
-# }
-# grading engine -> scoring module: "Apply Rubric" {
-#   style.animated: true
-# }
-# scoring module -> feedback generator: "Generate Feedback Based on Rubric" {
-#   style.animated: true
-# }
-# feedback generator -> results database: "Store Feedback" {
-#   style.animated: true
-# }
-# results database -> teacher review: "Fetch Feedback" {
-#   style.animated: true
-# }
-# teacher review -> final submission: "Approve / Modify / Regenerate" {
-#   style.animated: true
-# }
-# !SECTION
+# HEADING - SIZING

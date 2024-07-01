@@ -1,0 +1,16 @@
+views {
+
+  view index of autoTeach {
+    title "AutoTeach - Landscape"
+    include *
+    include student
+
+    autoLayout LeftRight
+    style autoTeach {
+      color secondary
+      opacity 20%
+      border dashed
+    }
+
+  }
+}

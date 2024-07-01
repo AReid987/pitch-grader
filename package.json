@@ -11,13 +11,17 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "18.3.3",
+    "@vscode/codicons": "^0.0.36",
+    "esbuild": "^0.22.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
+    "likec4": "^1.4.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   },
   "dependencies": {
+    "@esbuild/darwin-arm64": "^0.22.0",
     "next": "^14.2.4"
   }
 }

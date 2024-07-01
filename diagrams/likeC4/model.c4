@@ -1,0 +1,51 @@
+model {
+  autoTeach = enterprise 'AutoTeach' {
+
+    instructor = person 'Instructor' {
+      description: '
+        Staff member who delivers instruction, provides feedback to fellows, and grades assignments.
+      '
+      style {
+        color amber
+        icon https://api.iconify.design/hugeicons/teacher.svg
+      }
+    }
+
+    gradeGen = softwareSystem 'GradeGen Learning Platform' {
+      link https://github.com/AReid987/pitch-grader
+      description: '
+        Internal Software System. Autonomous grading and feedback mechanisms empower instructors to focus on high impact work.
+      '
+      style {
+        color primary
+        icon https://api.iconify.design/mdi/server.svg
+      }
+    }
+  }
+
+    student = person 'Student' {
+    description '
+      A TKH Fellow, who is submitting assignments.
+    '
+    style {
+      color green
+      icon https://api.iconify.design/ph/student.svg
+    }
+  }
+
+  googleClassroom = softwareSystem 'Google Classroom' {
+    link https://edu.google.com/workspace-for-education/classroom
+    description '
+      External Software System. Where teaching and learning come together.
+    '
+    style {
+      color gray
+      icon https://api.iconify.design/mdi/google-classroom.svg
+    }
+  }
+
+  instructor -[uses]-> gradeGen "Reviews, Fine Tunes, and Gives final decision on Grades and Feedback"
+  gradeGen -[async]-> googleClassroom "Fetches Assignments"
+  student -[submits]-> googleClassroom "Submits Assignments"
+
+}
