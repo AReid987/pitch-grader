@@ -1,16 +1,25 @@
 views {
 
-  view index of autoTeach {
+  view index {
     title "AutoTeach - Landscape"
-    include *
-    include student
+    include
+      autoTeach,
+      autoTeach.*,
+      virtualClassroom,
+      virtualClassroom.*,
 
-    autoLayout LeftRight
+
     style autoTeach {
-      color secondary
+      color indigo
       opacity 20%
       border dashed
     }
+    style virtualClassroom {
+      color green
+      opacity 20%
+      border solid
+    }
 
+    autoLayout LeftRight
   }
 }

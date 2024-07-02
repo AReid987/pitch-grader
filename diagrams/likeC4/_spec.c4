@@ -7,13 +7,17 @@ specification {
 
   element enterprise {
     style {
-      opacity 20%
+      opacity 10%
+      border solid
+      color secondary
     }
   }
 
   element container {
     style {
-      opacity 20%
+      opacity 10%
+      border dashed
+      color green
     }
   }
   element component
@@ -28,6 +32,7 @@ specification {
     style {
       color secondary
       shape person
+      border dotted
     }
   }
 
@@ -39,7 +44,9 @@ specification {
   }
   relationship uses {
     color amber
-    line solid
+    line dotted
+    head vee
+    tail vee
   }
   relationship generates {
     color amber
@@ -51,7 +58,9 @@ specification {
   }
   relationship submits {
     color green
-    line solid
+    line dotted
+    head vee
+    tail vee
   }
 }
 

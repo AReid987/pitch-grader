@@ -1,9 +1,16 @@
+// TITLE
+/* -------------------------------------------------------------------------- */
+/*                            System Architecture                             */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------  Model Definitions  --------------------------- */
 model {
-  autoTeach = enterprise 'AutoTeach' {
+
+  autoTeach = enterprise '🍎 AutoTeach LAMs [Internal]' {
 
     instructor = person 'Instructor' {
       description: '
-        Staff member who delivers instruction, provides feedback to fellows, and grades assignments.
+        Instructional staff member who delivers instruction, provides feedback to fellows, and grades assignments.
       '
       style {
         color amber
@@ -11,41 +18,46 @@ model {
       }
     }
 
-    gradeGen = softwareSystem 'GradeGen Learning Platform' {
+    gradeGen = softwareSystem '🍎 GradeGen LAMs [Internal]' {
       link https://github.com/AReid987/pitch-grader
       description: '
-        Internal Software System. Autonomous grading and feedback mechanisms empower instructors to focus on high impact work.
+        [Internal] Large Action Models (LAMs) execute autonomous grading and feedback mechanisms.
       '
       style {
         color primary
         icon https://api.iconify.design/mdi/server.svg
       }
     }
+
+    instructor -[uses]-> gradeGen "Reviews, Fine Tunes, and Gives final decision on Grades and Feedback"
   }
+
+  virtualClassroom = container '📚️ Classroom [External]' {
 
     student = person 'Student' {
-    description '
-      A TKH Fellow, who is submitting assignments.
-    '
-    style {
-      color green
-      icon https://api.iconify.design/ph/student.svg
-    }
-  }
+      description '
+        A Learner, who is submitting assignments.
+      '
+      style {
+        color green
+        icon https://api.iconify.design/ph/student.svg
+      }
 
-  googleClassroom = softwareSystem 'Google Classroom' {
-    link https://edu.google.com/workspace-for-education/classroom
-    description '
-      External Software System. Where teaching and learning come together.
-    '
-    style {
-      color gray
-      icon https://api.iconify.design/mdi/google-classroom.svg
     }
-  }
 
-  instructor -[uses]-> gradeGen "Reviews, Fine Tunes, and Gives final decision on Grades and Feedback"
-  gradeGen -[async]-> googleClassroom "Fetches Assignments"
-  student -[submits]-> googleClassroom "Submits Assignments"
+    googleClassroom = softwareSystem 'Google Classroom' {
+      link https://edu.google.com/workspace-for-education/classroom
+      description '
+        [External] Where teaching and learning come together.
+      '
+      style {
+        color gray
+        icon https://api.iconify.design/mdi/google-classroom.svg
+      }
+    }
+
+    googleClassroom -[submits]-> student "Submits Assignments / Receives Grades"
+  }
+  autoTeach -[async]-> virtualClassroom "Fetches Assignments"
 
 }
