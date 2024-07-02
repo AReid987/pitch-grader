@@ -5,6 +5,8 @@ views {
     include
       autoTeach,
       autoTeach.*,
+      transport,
+      transport.*,
       virtualClassroom,
       virtualClassroom.*,
 

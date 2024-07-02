@@ -7,15 +7,14 @@ specification {
 
   element enterprise {
     style {
-      opacity 10%
+      opacity 20%
       border solid
-      color secondary
     }
   }
 
   element container {
     style {
-      opacity 10%
+      opacity 20%
       border dashed
       color green
     }
@@ -36,6 +35,12 @@ specification {
     }
   }
 
+  element protocol {
+    style {
+      shape queue
+      color muted
+    }
+  }
   relationship async {
     color red
     line dashed

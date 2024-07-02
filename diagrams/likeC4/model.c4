@@ -5,9 +5,11 @@
 
 /* --------------------------  Model Definitions  --------------------------- */
 model {
+/* --------------------- // Internal Systems and Actors --------------------- */
 
-  autoTeach = enterprise '🍎 AutoTeach LAMs [Internal]' {
-
+  // Container
+  autoTeach = enterprise '🍎 - AutoTeach LAMs [Internal]' {
+    // Models
     instructor = person 'Instructor' {
       description: '
         Instructional staff member who delivers instruction, provides feedback to fellows, and grades assignments.
@@ -16,9 +18,40 @@ model {
         color amber
         icon https://api.iconify.design/hugeicons/teacher.svg
       }
+
+      // Microservices
+        // Sign in service
+          // Frontend
+            // Sign up / Login Interface
+            // Nest.js route for Authentication / Authorization
+            // Homepage / Dashboard
+          // Backend
+            // Auth controller
+            // Database Table for Teachers
+
+        // Assignment Processor
+
+        // Video Analyzer
+        // Text Analyzer
+        // Grading Engine
+        // Scoring Module
+        // Feeback Generator
+        // Database Table for Grades
+        // Database Table for Feedback
+        // Teacher Interface
+          // Review Assignments
+          // Grade Assignments
+          // Provide Feedback
+
+        // Database Tables
+          // Teachers
+          // Students
+          // Grades
+          // Feedback
+          // Links
     }
 
-    gradeGen = softwareSystem '🍎 GradeGen LAMs [Internal]' {
+    gradeGen = softwareSystem '🍎 - GradeGen LAMs [Internal]' {
       link https://github.com/AReid987/pitch-grader
       description: '
         [Internal] Large Action Models (LAMs) execute autonomous grading and feedback mechanisms.
@@ -27,13 +60,39 @@ model {
         color primary
         icon https://api.iconify.design/mdi/server.svg
       }
-    }
 
+      //
+    }
+/* ---------------------------- // Relationships ---------------------------- */
     instructor -[uses]-> gradeGen "Reviews, Fine Tunes, and Gives final decision on Grades and Feedback"
+
+    gradeGen -[async]-> restRequest {
+      title '
+        ------------------------------------------
+        Fetches assignments from Google Classroom
+        GET /assignments
+        ------------------------------------------
+      '
+    }
   }
 
-  virtualClassroom = container '📚️ Classroom [External]' {
-
+/* --------------------------- // Transport Layer --------------------------- */
+// Container
+  transport = container 'REST Request' {
+// Transport layer
+    restRequest = protocol 'Fetch Request' {
+      description '
+        Request / Response layer for fetching assignments from Google Classroom
+      '
+      style {
+      icon https://api.iconify.design/token-branded/get.svg
+      }
+    }
+  }
+/* --------------------- // External Systems and Actors --------------------- */
+// Container
+  virtualClassroom = container '📚️ - Classroom [External]' {
+// Models
     student = person 'Student' {
       description '
         A Learner, who is submitting assignments.
@@ -55,9 +114,16 @@ model {
         icon https://api.iconify.design/mdi/google-classroom.svg
       }
     }
-
+/* ---------------------------- // Relationships ---------------------------- */
     googleClassroom -[submits]-> student "Submits Assignments / Receives Grades"
+    restRequest -[async]-> googleClassroom {
+      title '
+        ------------------------------------------
+        Responds with Assignments
+        GET /assignments
+        ------------------------------------------
+      '
+    }
   }
-  autoTeach -[async]-> virtualClassroom "Fetches Assignments"
 
 }
