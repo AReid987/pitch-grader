@@ -1,4 +1,5 @@
 {
   "WhiteSource Advise.Diff.BaseBranch": "main",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "conventionalCommits.scopes": ["C4 System Architecture Diagram"]
 }
